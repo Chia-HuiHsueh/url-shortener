@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+require('./config/mongoose')
 
 app.get('/', (req, res) => {
   res.send('This is url shortener.')
