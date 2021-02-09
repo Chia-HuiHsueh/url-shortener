@@ -1,12 +1,18 @@
 const express = require('express')
+const exphbs = require('express-handlebars')
+require('./config/mongoose')
 const app = express()
 const port = 3000
-require('./config/mongoose')
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.send('This is url shortener.')
+  res.render('index')
 })
+
 
 app.listen(port, (req, res) => {
   console.log('App is running on http://localhost:3000')
