@@ -25,7 +25,6 @@ function checkUrlInDatabase(urlData, baseUrl, inputLongUrl, res) {
       if (result) {
         res.render('index', { result, baseUrl })
       } else {
-        // saveShortenedUrl(checkRandomUrl(generateRandomUrl()), urlData, baseUrl, inputLongUrl, res)
         return saveShortenedUrl(urlData, baseUrl, inputLongUrl, res)
       }
     })
@@ -33,10 +32,15 @@ function checkUrlInDatabase(urlData, baseUrl, inputLongUrl, res) {
 }
 
 //將產生好的短網址存入database並渲染畫面
-function saveShortenedUrl(inputLongUrl, res) {
+function saveShortenedUrl(inputLongUrl, baseUrl, res) {
   const url = inputLongUrl.originalUrl
-  return URL.create({ originalUrl: url })
-    .then(() => res.render('index', { url }))
+  URL.create({ originalUrl: url })
+    .then((result) => {
+      if (result) {
+        res.render('index', { result })
+      }
+    })
+    .catch(error => console.log(error))
 }
 
 
