@@ -1,12 +1,20 @@
 <h1>縮網址</h1>
 <form action="/" method="POST">
   <div class="urlInput">
-    <input type="text" placeholder="在這裡輸入你的網址" name="inputUrl" required>
+    <input type="text" placeholder="在這裡輸入你的網址" name="originalUrl" required>
     <button type="submit">縮址</button>
   </div>
 </form>
-
+{{#if url}}
 <div class="urlOutput">
   <label for="urlOutput">你的縮網址為</label>
-  <input type="text">{{#if originalUrl}}{{originalUrl}}{{/if }}
+  <input type="text" name="shortenedUrl" value="{{baseUrl}}{{this.shortenedUrl}}">
 </div>
+{{/if }}
+
+{{#if result}}
+<div class="urlOutput">
+  <label for="urlOutput">你的縮網址為</label>
+  <input type="text" name="shortenedUrl" value="{{baseUrl}}{{result.shortenedUrl}}">
+</div>
+{{/if }}
