@@ -1,14 +1,33 @@
 body {
   font-family: 'Ubuntu', sans-serif !important;
 }
-
-
-.container{
-  border: 1px saddlebrown solid;
+.shortenedUrl{
+  font-size: 20px;
 }
-
 
 .title{
   font-size: 70px;
   font-family: 'Ubuntu', sans-serif!important;
+}
+a:link{
+text-decoration:none;
+background-color:none;
+color:#20061C;
+}
+
+a:visited {
+color:#ffffff;
+background-color:#C04854;
+}
+
+a:active {
+text-decoration:none;
+background-color:gray;
+color:#fafafa;
+}
+
+a:hover {
+text-decoration:none;
+background-color:#fafafa;
+color:gray;
 }

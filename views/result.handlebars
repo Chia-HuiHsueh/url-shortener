@@ -1,9 +1,8 @@
-<div class="urlOutput">
-  <label for="urlOutput">你的縮網址為</label>
+<div class="result d-flex justify-content-center mt-5">
   {{#if currentUrl}}
-  <a href="{{currentUrl}}">{{currentUrl}}</a>
+  <a href="{{currentUrl}}" class="shortenedUrl">{{currentUrl}}</a>
   {{/if}}
   {{#if shortenedUrl}}
-  <a href="{{shortenedUrl}}">{{shortenedUrl}}</a>
+  <a href="{{shortenedUrl}}" class="shortenedUrl">{{ shortenedUrl}}</a>
   {{/if}}
 </div>
