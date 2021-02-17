@@ -23,7 +23,9 @@ function checkUrlInDatabase(urlData, baseUrl, inputLongUrl, res) {
     .lean()
     .then(result => {
       if (result) {
-        res.render('index', { result, baseUrl })
+        let shortenedUrl = result.shortenedUrl
+        const currentUrl = `${baseUrl}${shortenedUrl}`
+        res.render('result', { currentUrl })
       } else {
         return saveShortenedUrl(urlData, baseUrl, inputLongUrl, res)
       }
@@ -34,13 +36,21 @@ function checkUrlInDatabase(urlData, baseUrl, inputLongUrl, res) {
 //將產生好的短網址存入database並渲染畫面
 function saveShortenedUrl(inputLongUrl, baseUrl, res) {
   const url = inputLongUrl.originalUrl
-  URL.create({ originalUrl: url })
-    .then((result) => {
-      if (result) {
-        res.render('index', { result })
-      }
+  return URL.create({ originalUrl: url })
+    .then((url) => {
+      let shortenedUrl = url.shortenedUrl
+      const newUrl = `${baseUrl}${shortenedUrl}`
+      res.render('result', { newUrl })
     })
     .catch(error => console.log(error))
+  // return Url.create(urlData)
+  //   .then(() => res.render('index', { urlData })) 
+  // .then(() => {
+  //   res.redirect('/')
+  // })
+  // .then(() => {
+  //   res.render('result', { result, baseUrl })
+  // })
 }
 
 

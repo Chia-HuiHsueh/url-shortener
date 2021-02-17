@@ -6,7 +6,6 @@ const URL = require('../../models/url')
 
 router.get('/:shortUrl', (req, res) => {
   const shortUrl = req.params.shortUrl
-  console.log(shortUrl)
   URL.find({ shortenedUrl: shortUrl })
     .lean()
     .then((url) => {
