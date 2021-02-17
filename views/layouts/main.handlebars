@@ -5,11 +5,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>url shortener</title>
+  <title>URL Shortener</title>
+
+  {{!-- bootstrap --}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  {{!-- fontAwesome --}}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  {{!-- Google font --}}
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  {{!-- Custom style css --}}
+  <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
 </head>
 
 <body>
-  {{{ body }}}
+  <header>
+    <nav class="navbar navbar-light " style="background: #AED8E2;">
+      <a class="navbar-brand" href="/"><span class="m-2" style="color: #20061C;">URL Shortener</span><span class="m-1"
+          style="color: #20061C;"><i class="fas fa-link"></i></span></a>
+    </nav>
+  </header>
+  <main style="border: 1px solid black; max-width: 1080px; margin:100px auto;     
+  padding: 25px ;">
+    <div class="container" style="border: 1px solid red;">
+      <div class="top-section " style="border: 1px solid blue;">
+        <div class="title d-flex justify-content-center mb-4" style="color: #20061C; ">URL Shortener</div>
+        <div class="link-icon d-flex justify-content-center mb-2"><i class="fas fa-link fa-9x"
+            style="color:#AED8E2"></i>
+        </div>
+      </div>
+      {{{ body }}}
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
 </body>
 
 
