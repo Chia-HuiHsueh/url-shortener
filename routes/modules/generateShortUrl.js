@@ -27,14 +27,15 @@ router.post('/', (req, res) => {
       .then(() => res.render('invalid', { originalUrl }))
       .catch(error => console.log(error))
   }
+
   let randomUrl = generateShortenedUrl()
 
   //檢查縮網址是否重複
   URL.exists({ randomUrl })
     .then((result) => {
       if (result) {
-        regenerateRandomUrl = generateShortenedUrl()
-        shortenedUrl = baseUrl + regenerateRandomUrl
+        let regenerateRandomUrl = generateShortenedUrl()
+        let shortenedUrl = baseUrl + regenerateRandomUrl
         URL.create({ originalUrl: originalUrl, shortenedUrl: regenerateRandomUrl })
         return shortenedUrl
       } else {
