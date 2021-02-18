@@ -3,7 +3,7 @@ const router = express.Router()
 const validUrl = require('valid-url')
 const URL = require('../../models/url')
 
-const production = ''
+const production = 'https://immense-eyrie-21844.herokuapp.com/'
 const localhost = 'http://localhost:3000/'
 const baseUrl = process.env.NODE_ENV ? production : localhost
 
