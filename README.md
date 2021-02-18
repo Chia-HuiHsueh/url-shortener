@@ -1,5 +1,7 @@
 # URL-shortener
 此專案提供使用者縮短網址。
+https://immense-eyrie-21844.herokuapp.com/
+
 ## Features - 功能描述
 * 使用者可以縮短網址長度。
 
@@ -33,3 +35,4 @@ cd expense-tracker
 * mongoose: ^5.11.15"-資料庫連線
 * body-parser: ^1.19.0"
 * valid-url: "^1.0.9"
+
