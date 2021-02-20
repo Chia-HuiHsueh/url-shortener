@@ -29,21 +29,36 @@ router.post('/', (req, res) => {
   }
 
   let randomUrl = generateShortenedUrl()
-
-  //檢查縮網址是否重複
-  URL.exists({ randomUrl })
-    .then((result) => {
-      if (result) {
-        let regenerateRandomUrl = generateShortenedUrl()
-        let shortenedUrl = baseUrl + regenerateRandomUrl
-        URL.create({ originalUrl: originalUrl, shortenedUrl: regenerateRandomUrl })
-        return shortenedUrl
+  //檢查輸入網址是否已存在db
+  URL.findOne({ originalUrl: originalUrl })
+    .lean()
+    .then(url => {
+      console.log(url)
+      if (!url) {
+        checkRandomUrl(randomUrl, originalUrl, res)
       } else {
-        let shortenedUrl = baseUrl + randomUrl
-        URL.create({ originalUrl: originalUrl, shortenedUrl: randomUrl })
-        return shortenedUrl
+        let shortenedUrl = baseUrl + (url.shortenedUrl)
+        res.render('result', { shortenedUrl })
       }
     })
-    .then((shortenedUrl) => res.render('result', { shortenedUrl }))
+  //檢查產生縮網址是否重複
+  function checkRandomUrl(randomUrl, originalUrl, res) {
+    URL.exists({ randomUrl })
+      .then((result) => {
+        if (result) {
+          let regenerateRandomUrl = generateShortenedUrl()
+          let shortenedUrl = baseUrl + regenerateRandomUrl
+          URL.create({ originalUrl: originalUrl, shortenedUrl: regenerateRandomUrl })
+          return shortenedUrl
+        } else {
+          let shortenedUrl = baseUrl + randomUrl
+          URL.create({ originalUrl: originalUrl, shortenedUrl: randomUrl })
+          return shortenedUrl
+        }
+      })
+      .then((shortenedUrl) => res.render('result', { shortenedUrl }))
+
+  }
+
 })
 module.exports = router
