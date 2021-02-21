@@ -33,7 +33,6 @@ router.post('/', (req, res) => {
   URL.findOne({ originalUrl: originalUrl })
     .lean()
     .then(url => {
-      console.log(url)
       if (!url) {
         checkRandomUrl(randomUrl, originalUrl, res)
       } else {
